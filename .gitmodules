@@ -1,0 +1,39 @@
+[submodule "nerdtree"]
+	path = nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "bundle/vim-go"]
+	path = bundle/vim-go
+	url = git@github.com:fatih/vim-go.git
+[submodule "bundle/youCompleteMe"]
+	path = bundle/youCompleteMe
+	url = git@github.com:Valloric/YouCompleteMe.git
+[submodule "bundle/bundle/vim-fugitive"]
+	path = bundle/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = git@github.com:kien/ctrlp.vim.git
+[submodule "vim-flake8"]
+	path = vim-flake8
+	url = git@github.com:nvie/vim-flake8.git
+[submodule "bundle/vim-flake8"]
+	path = bundle/vim-flake8
+	url = git@github.com:nvie/vim-flake8.git
+[submodule "bundle/indentLine"]
+	path = bundle/indentLine
+	url = git@github.com:Yggdroot/indentLine.git
+[submodule "bundle/plantuml-syntax"]
+	path = bundle/plantuml-syntax
+	url = https://github.com/aklt/plantuml-syntax
+[submodule "bundle/vim-slumlord"]
+	path = bundle/vim-slumlord
+	url = https://github.com/scrooloose/vim-slumlord
+[submodule "bundle/tern_for_vim"]
+	path = bundle/tern_for_vim
+	url = git@github.com:ternjs/tern_for_vim.git

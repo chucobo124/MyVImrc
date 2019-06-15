@@ -1,0 +1,1 @@
+/Users/lucaschen/.vim/plugged/gocode/vim/ftplugin/go/gocomplete.vim
