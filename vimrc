@@ -4,11 +4,9 @@
 
 call plug#begin()
 	Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-	Plug 'fatih/vim-go'
 	Plug 'fatih/molokai'
 	Plug 'AndrewRadev/splitjoin.vim'
 	Plug 'SirVer/ultisnips'
-	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'scrooloose/nerdtree'
 	Plug 'Xuyuanp/nerdtree-git-plugin'
 	Plug 'vim-airline/vim-airline'
@@ -33,12 +31,38 @@ call plug#begin()
 	Plug 'davidhalter/jedi-vim'
 	Plug 'nvie/vim-flake8'
 	Plug 'ap/vim-css-color'
+	Plug 'morhetz/gruvbox'
+	Plug 'prettier/vim-prettier', {
+	  \ 'do': 'npm install',
+	  \ 'branch': 'release/1.x',
+	  \ 'for': [
+	    \ 'javascript',
+	    \ 'typescript',
+	    \ 'css',
+	    \ 'less',
+	    \ 'scss',
+	    \ 'json',
+	    \ 'graphql',
+	    \ 'markdown',
+	    \ 'vue',
+	    \ 'lua',
+	    \ 'php',
+	    \ 'python',
+	    \ 'ruby',
+	    \ 'html',
+	    \ 'swift' ] }
+	Plug 'vim-scripts/bash-support.vim'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
+	Plug '/usr/local/opt/fzf'
 call plug#end()
 
 "=========================
 "==== Default setting ====
 "=========================
 
+set synmaxcol=0
+colorscheme gruvbox
 set encoding=utf-8
 set autoindent
 set nu
@@ -61,6 +85,7 @@ hi SpellBad cterm=underline
 noremap <leader>nt :tabnew<CR>
 
 "==== Quick Fix settings ====
+
 " Jump to next error with Ctrl-n and previous error with Ctrl-m. Close the
 " quickfix window with <leader>a
 noremap <C-n> :cn<CR>
@@ -70,6 +95,20 @@ noremap <leader>a :ccl<CR>
 "======================================
 "==== Separate Config By Language ====
 "======================================
+
+augroup overall autocmd!
+	autocmd BufReadPost,BufWritePost * :redr
+augroup end
+
+augroup proto
+	autocmd Filetype proto setlocal tabstop=4
+augroup end
+
+
+augroup javascript 
+    autocmd!
+    autocmd BufWritePost *.js :Prettier<CR>
+augroup end
 
 augroup css 
 	autocmd!
@@ -82,6 +121,7 @@ augroup html
 	autocmd FileType html setlocal omnifunc=csscomplete#CompleteCSS
 	autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
 	autocmd Filetype html setlocal tabstop=4
+	nmap <silent> <leader>w :exec '!open -n % &'<CR>
 augroup end
 
 augroup quickfix
@@ -95,6 +135,8 @@ augroup end
 augroup python
 	autocmd!
 	autocmd BufWritePost *.py :call flake8#Flake8()
+	autocmd FileType .py :exec !python sys.path:
+
 augroup end
 
 augroup uml
@@ -108,11 +150,6 @@ augroup golang
     autocmd FileType go nmap <leader>r  <Plug>(go-run)
     autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()
     autocmd BufWritePost *.go :call <SID>build_go_files()
-    autocmd BufWritePost *_test.go :call <SID>build_go_files()
-augroup end
-
-augroup git
-	autocmd QuickFixCmdPost *grep* cwindow
 augroup end
 
 "============================
@@ -140,8 +177,11 @@ endfunction
 "==== Plug Settings ====
 "=======================
 
+"==== gruvbox ====
+let g:gruvbox_contrast_dark = "soft"
+
 "==== jedi-vim ====
-let g:jedi#goto_command = "gg"
+let g:jedi#goto_command = "go"
 let g:jedi#goto_assignments_command = "ga"
 let g:jedi#goto_definitions_command = "gd"
 
@@ -211,3 +251,5 @@ let g:plantuml_executable_script="java -jar ~/bin/plantuml.jar"
 "==== vim-flake8 ====
 let g:flake8_cmd="/usr/local/bin/flake8"
 
+"==== fzf ====
+noremap <C-p> :Files<CR>

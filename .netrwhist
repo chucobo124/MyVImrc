@@ -1,11 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/lucaschen/go/src/github.com/carousell/carousell-config/config/stage'
-let g:netrw_dirhist_2='/Users/lucaschen/go/src/github.com/carousell/carousell-config/config/stage/searchsuggestion'
-let g:netrw_dirhist_3='/Users/lucaschen/go/src/github.com/carousell/carousell-config/config/stage/searchsuggestion/redis'
-let g:netrw_dirhist_4='/Users/lucaschen/go/src/github.com/carousell/carousell-config/config/stage/searchsuggestion'
-let g:netrw_dirhist_5='/Users/lucaschen/go/src/github.com/carousell/carousell-config/config/stage/searchsuggestion/redis'
-let g:netrw_dirhist_6='/Users/lucaschen/go/src/github.com/carousell/carousell-config/config/prod/redis'
-let g:netrw_dirhist_7='/Users/lucaschen/go/src/github.com/carousell/SearchSuggestion/vendor/gopkg.in/olivere/elastic.v5'
-let g:netrw_dirhist_8='/Users/lucaschen/WorkingSpace/carousell-compose/Carousell-Django/snapsell/smart_listings'
-let g:netrw_dirhist_9='/Users/lucaschen/.vim'
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/Users/lucaschen/WorkingSpace/carousell-compose/Carousell-Django/snapsell/notifications'
+let g:netrw_dirhist_2='/Users/lucaschen/WorkingSpace/gkb_webpage/include'
+let g:netrw_dirhist_1='/Users/lucaschen/WorkingSpace/gkb_webpage/js/setup_camera'
